@@ -159,8 +159,9 @@
 	_formatter: function(format, date) {
 		// Format the output date or time (not duration)
 		format = format.replace('SS', this._makeOrd(date.getDate()));
-		format = format.replace('YYYY', date.getFullYear());
-		format = format.replace('mmm',  this.options.monthsOfYear[date.getMonth()] );
+		format = format.replace(/YYYY/i, date.getFullYear());
+		format = format.replace('mmmm', this.options.monthsOfYear[date.getMonth()] );
+		format = format.replace('mmm',  this.options.monthsOfYearShort[date.getMonth()] );
 		format = format.replace('MM',   this._zeroPad(date.getMonth() + 1));
 		format = format.replace('mm',   date.getMonth() + 1);
 		format = format.replace('ddd',  this.options.daysOfWeek[date.getDay()] );
